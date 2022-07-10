@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
             if(type === unit.type || type === ""){
             console.log(keyword)
             unit.smallData.map(smalldata=>{
-                var regex = new RegExp(`${keyword}*`, 'g');
+                var regex = new RegExp(keyword);
                if(!smalldata.secret){
                 if(keyword === "" || regex.test(unit.title)){
                 array.push(
