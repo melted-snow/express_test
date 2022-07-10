@@ -1,12 +1,11 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
-const userRouter = require('./routes/user'); //追加
-const testRouter = require('./routes/test'); //追加
+const memoRouter = require('./routes/memo'); //追加
+const searchRouter = require('./routes/search'); //追加
 
-app.use('/user', userRouter);　//追加
-app.use('/test', testRouter);　//追加
+app.use('/memo', memoRouter);　//追加
+app.use('/search', searchRouter);　//追加
 
 
 const port = 8000; // listenするport番号
@@ -27,13 +26,6 @@ app.use((req, res, next) => {
 	next()
   })
 
-  app.post("/", function (req, res) {
-	try {
-	  res.json({"s":"ss"}); // jsonで返却
-	} catch (error) {
-	  console.error(error);
-	}
-  });
 
 mongoose.connect('mongodb://127.0.0.1/test_db',options);
 
